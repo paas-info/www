@@ -6,23 +6,57 @@ document.head.appendChild(script);
 script.onload = function () {
 
     var success = function (data) {
-        console.log('loaded', data.target.src);
+        if (typeof data.target !== 'undefined' && typeof data.target.src !== 'undefined') {
+            // js
+            console.log('SUCCESS loaded', data.target.src);
+        } else if (typeof data.responseURL !== 'undefined') {
+            // html
+            console.log('SUCCESS loaded', data.responseURL);
+        } else {
+            // others
+            console.log('SUCCESS loaded', data);
+        }
     };
+
     var error = function (data) {
         console.error('!loaded', data);
     };
 
 
-    var bootstrap = new Load(document.body, success, error);
+    function FontSize() {
+
+        // var fonts = new Load(document.body, success, error);
+        // fonts.js([
+        //     "https://code.jquery.com/jquery-3.3.1.slim.min.js",
+        // ]);
+
+        var fonts2 = new Load(document.body, success, error);
+        // jloads.domain("//js.jloads.com/");
+        fonts2.env("//localhost:80/", "local", function () {
+            return window.location.hostname === 'localhost';
+        })
+        fonts2.env("//www.faas.ovh/", "production", function () {
+            return window.location.hostname !== 'localhost';
+        })
+        fonts2.cacheOff().js([
+            "cdn/flowtype.js",
+        ]);
+        fonts2.cacheOff().delay(90).js([
+            "js/flowtype2.js",
+        ]);
+
+    }
+
+    var bootstrap = new Load(document.body, FontSize, error);
     bootstrap.css([
-        "/cdn/bootstrap.min.css"
+        "cdn/bootstrap.min.css"
         // "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     ]).js([
-        "/cdn/jquery-3.3.1.slim.min.js",
+        "cdn/jquery-3.3.1.slim.min.js",
         // "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
-        "/cdn//popper.min.js",
+        "cdn//popper.min.js",
         // "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        "/cdn/bootstrap.min.js"
+        "cdn/bootstrap.min.js"
     ]);
 
 
@@ -44,11 +78,13 @@ script.onload = function () {
         // app.env("//www.faas.ovh/", "production", function () {
         //     return window.location.hostname !== 'localhost';
         // })
-        app.cacheOff().js([
+        app.cacheOff().delay(50).js([
             "js/form.js",
             "js/faas-message.js"
         ]);
     }
+
+    // TODO: succes only after loading all, not each
 
     var jloads = new Load(document.body, Forms, error);
     jloads.domain("//js.jloads.com/");
@@ -63,25 +99,6 @@ script.onload = function () {
         // "load/listener.js",
         // "load/router.js",
         "rest/rest-form.js"
-    ]);
-
-
-    // var fonts = new Load(document.body, success, error);
-    // fonts.js([
-    //     "https://code.jquery.com/jquery-3.3.1.slim.min.js",
-    // ]);
-
-    var fonts2 = new Load(document.body, success, error);
-    // jloads.domain("//js.jloads.com/");
-    fonts2.env("//localhost:80/", "local", function () {
-        return window.location.hostname === 'localhost';
-    })
-    fonts2.env("//www.faas.ovh/", "production", function () {
-        return window.location.hostname !== 'localhost';
-    })
-    fonts2.cacheOff().delay(100).js([
-        "cdn/flowtype.js",
-        "js/flowtype2.js",
     ]);
 
 
@@ -100,9 +117,6 @@ script.onload = function () {
         // "html/server-list.html",
         "html/app-list.html",
     ]);
-
-
-
 
 
     // app.style([

@@ -12,12 +12,12 @@ var success = function (data) {
     // console.log('FORM success', data);
     console.table('FORM success', data);
 
-    var Check = prompt('Geben Sie Ihr Passwort für diese Seite ein', '@');
-    if (Check != '@') {
-        alert('Du kommst hier nicht rein!');
-    } else {
-        alert('Sie haben Zutritt');
-    }
+    // var Check = prompt('Geben Sie Ihr Passwort für diese Seite ein', '@');
+    // if (Check != '@') {
+    //     alert('Du kommst hier nicht rein!');
+    // } else {
+    //     alert('Sie haben Zutritt');
+    // }
 
 };
 var error = function (data) {
