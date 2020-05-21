@@ -1,3 +1,5 @@
+JLOADS_DEBUG = false;
+
 var script = document.createElement('script');
 // script.src = (window.location.hostname === 'localhost') ? "//localhost:8080/load.js" : "//load.jloads.com/load.js";
 script.src = "//load.jloads.com/load.js";
@@ -35,7 +37,22 @@ script.onload = function () {
     ]);
 
 
-    var jloads = new Load(document.body, success, error);
+    function Forms() {
+        var app = new Load(document.body, success, error);
+        // app.domain("//app.faas.ovh/");
+        // app.env("//localhost:80/", "local", function () {
+        //     return window.location.hostname === 'localhost';
+        // })
+        // app.env("//www.faas.ovh/", "production", function () {
+        //     return window.location.hostname !== 'localhost';
+        // })
+        app.cacheOff().js([
+            "js/form.js",
+            "js/faas-message.js"
+        ]);
+    }
+
+    var jloads = new Load(document.body, Forms, error);
     jloads.domain("//js.jloads.com/");
 // jloads.cache(1).cascade().js([
     jloads.js([
@@ -51,24 +68,6 @@ script.onload = function () {
     ]);
 
 
-    var app = new Load(document.body, success, error);
-    // app.domain("//app.faas.ovh/");
-    // app.env("//localhost:80/", "local", function () {
-    //     return window.location.hostname === 'localhost';
-    // })
-    // app.env("//www.faas.ovh/", "production", function () {
-    //     return window.location.hostname !== 'localhost';
-    // })
-    app.cacheOff().js([
-        "/js/form.js",
-        "/js/faas-message.js"
-    ]);
-
-    // app.style([
-        // "css/black.css",
-        // "css/mobile.css"
-    // ]);
-
     // var fonts = new Load(document.body, success, error);
     // fonts.js([
     //     "https://code.jquery.com/jquery-3.3.1.slim.min.js",
@@ -83,8 +82,8 @@ script.onload = function () {
         return window.location.hostname !== 'localhost';
     })
     fonts2.cacheOff().delay(100).js([
-        "/cdn/flowtype.js",
-        "/js/flowtype2.js",
+        "cdn/flowtype.js",
+        "js/flowtype2.js",
     ]);
 
 
@@ -104,5 +103,13 @@ script.onload = function () {
         "html/app-list.html",
     ]);
 
+
+
+
+
+    // app.style([
+    // "css/black.css",
+    // "css/mobile.css"
+    // ]);
 
 }
