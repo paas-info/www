@@ -1,16 +1,29 @@
 var script = document.createElement('script');
-script.src = (window.location.hostname === 'localhost') ? "//localhost:8080/load.js" : "//load.jloads.com/load.js";
+// script.src = (window.location.hostname === 'localhost') ? "//localhost:8080/load.js" : "//load.jloads.com/load.js";
+script.src = "//load.jloads.com/load.js";
 document.head.appendChild(script);
 
 script.onload = function () {
 
     var success = function (data) {
-        console.log('loaded', data);
+        console.log('loaded', data.load.target.src);
     };
     var error = function (data) {
         console.error('!loaded', data);
     };
 
+
+    var bootstrap = new Load(document.body, success, error);
+    bootstrap.css([
+        "/css/bootstrap.min.css"
+        // "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    ]).js([
+        "/js/jquery-3.3.1.slim.min.js",
+        // "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
+        "/js//popper.min.js",
+        // "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        "/js/bootstrap.min.js"
+    ]);
 
     var images = new Load(document.body, success, error);
     // var images = new Load(document.body, success, error, loader);
@@ -22,14 +35,15 @@ script.onload = function () {
 
 
     var jloads = new Load(document.body, success, error);
+    jloads.domain("//js.jloads.com/");
 
-    jloads.env("//localhost:80/", "local", function () {
-        return window.location.hostname === 'localhost';
-    })
+    // jloads.env("//localhost:80/", "local", function () {
+    //     return window.location.hostname === 'localhost';
+    // })
 
-    jloads.env("//js.jloads.com/", "production", function () {
-        return window.location.hostname !== 'localhost';
-    })
+    // jloads.env("//js.jloads.com/", "production", function () {
+    //     return window.location.hostname !== 'localhost';
+    // })
 
 // console.log(
 //     'loada',loada
@@ -52,10 +66,11 @@ script.onload = function () {
 
 
     var app = new Load(document.body, success, error);
-    app.env("//localhost:3001/", "local", function () {
+    // app.domain("//app.faas.ovh/");
+    app.env("//localhost:80/", "local", function () {
         return window.location.hostname === 'localhost';
     })
-    app.env("//app.faas.ovh/", "production", function () {
+    app.env("//www.faas.ovh/", "production", function () {
         return window.location.hostname !== 'localhost';
     })
     app.cacheOff();
@@ -70,31 +85,29 @@ script.onload = function () {
         // "css/mobile.css"
     // ]);
 
-    var bootstrap = new Load(document.body, success, error);
-    bootstrap.css([
-        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    ]).js([
-        "https://code.jquery.com/jquery-3.3.1.slim.min.js",
-        "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
-        "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    ]);
-
     // var fonts = new Load(document.body, success, error);
     // fonts.js([
     //     "https://code.jquery.com/jquery-3.3.1.slim.min.js",
     // ]);
 
     var fonts2 = new Load(document.body, success, error);
+    // jloads.domain("//js.jloads.com/");
+    fonts2.env("//localhost:80/", "local", function () {
+        return window.location.hostname === 'localhost';
+    })
+    fonts2.env("//www.faas.ovh/", "production", function () {
+        return window.location.hostname !== 'localhost';
+    })
     fonts2.delay(100).js([
         "/js/flowtype.js",
         "/js/flowtype2.js",
     ]);
 
     var media = new Load(document.body, success, error);
-    media.env("//localhost:3001/", "local", function () {
+    media.env("//localhost:80/", "local", function () {
         return window.location.hostname === 'localhost';
     })
-    media.env("//app.faas.ovh/", "production", function () {
+    media.env("//www.faas.ovh/", "production", function () {
         return window.location.hostname !== 'localhost';
     })
     // media.target("#home-plugins");
