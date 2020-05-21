@@ -37,21 +37,8 @@ script.onload = function () {
 
     var jloads = new Load(document.body, success, error);
     jloads.domain("//js.jloads.com/");
-
-    // jloads.env("//localhost:80/", "local", function () {
-    //     return window.location.hostname === 'localhost';
-    // })
-
-    // jloads.env("//js.jloads.com/", "production", function () {
-    //     return window.location.hostname !== 'localhost';
-    // })
-
-// console.log(
-//     'loada',loada
-// );
-
 // jloads.cache(1).cascade().js([
-    jloads.cacheOff().js([
+    jloads.js([
         "load/message.js",
         // "load/e.js",
         "load/formToObject.min.js",
@@ -66,17 +53,15 @@ script.onload = function () {
 
     var app = new Load(document.body, success, error);
     // app.domain("//app.faas.ovh/");
-    app.env("//localhost:80/", "local", function () {
-        return window.location.hostname === 'localhost';
-    })
-    app.env("//www.faas.ovh/", "production", function () {
-        return window.location.hostname !== 'localhost';
-    })
-    app.cacheOff();
-
-    app.js([
-        "js/form.js",
-        "js/faas-message.js"
+    // app.env("//localhost:80/", "local", function () {
+    //     return window.location.hostname === 'localhost';
+    // })
+    // app.env("//www.faas.ovh/", "production", function () {
+    //     return window.location.hostname !== 'localhost';
+    // })
+    app.cacheOff().js([
+        "/js/form.js",
+        "/js/faas-message.js"
     ]);
 
     // app.style([
@@ -97,7 +82,7 @@ script.onload = function () {
     fonts2.env("//www.faas.ovh/", "production", function () {
         return window.location.hostname !== 'localhost';
     })
-    fonts2.delay(100).js([
+    fonts2.cacheOff().delay(100).js([
         "/cdn/flowtype.js",
         "/js/flowtype2.js",
     ]);
@@ -110,14 +95,7 @@ script.onload = function () {
     media.env("//www.faas.ovh/", "production", function () {
         return window.location.hostname !== 'localhost';
     })
-    // media.target("#home-plugins");
-    // media.html([
-    //     // "html/messages.html",
-    //     "html/server.html",
-    //     "html/list.html",
-    //     // "html/POST.html",
-    //     // "html/DELETE.html"
-    // ]);
+
     media.target("#faas-form").html([
         "html/server.html",
     ]);
