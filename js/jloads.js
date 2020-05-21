@@ -6,7 +6,7 @@ document.head.appendChild(script);
 script.onload = function () {
 
     var success = function (data) {
-        console.log('loaded', data.load.target.src);
+        console.log('loaded', data.target.src);
     };
     var error = function (data) {
         console.error('!loaded', data);
@@ -15,15 +15,16 @@ script.onload = function () {
 
     var bootstrap = new Load(document.body, success, error);
     bootstrap.css([
-        "/css/bootstrap.min.css"
+        "/cdn/bootstrap.min.css"
         // "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     ]).js([
-        "/js/jquery-3.3.1.slim.min.js",
+        "/cdn/jquery-3.3.1.slim.min.js",
         // "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
-        "/js//popper.min.js",
+        "/cdn//popper.min.js",
         // "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        "/js/bootstrap.min.js"
+        "/cdn/bootstrap.min.js"
     ]);
+
 
     var images = new Load(document.body, success, error);
     // var images = new Load(document.body, success, error, loader);
@@ -52,15 +53,13 @@ script.onload = function () {
 // jloads.cache(1).cascade().js([
     jloads.cacheOff().js([
         "load/message.js",
-        "load/e.js",
+        // "load/e.js",
         "load/formToObject.min.js",
-        "load/response.js",
+        // "load/response.js",
         "rest/rest.js",
-
-        "include/include.js",
-
-        "load/listener.js",
-        "load/router.js",
+        // "include/include.js",
+        // "load/listener.js",
+        // "load/router.js",
         "rest/rest-form.js"
     ]);
 
@@ -99,9 +98,10 @@ script.onload = function () {
         return window.location.hostname !== 'localhost';
     })
     fonts2.delay(100).js([
-        "/js/flowtype.js",
+        "/cdn/flowtype.js",
         "/js/flowtype2.js",
     ]);
+
 
     var media = new Load(document.body, success, error);
     media.env("//localhost:80/", "local", function () {

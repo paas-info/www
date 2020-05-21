@@ -26,7 +26,7 @@ setTimeout(function () {
             "method": "GET"
         });
 
-        form.url((window.location.hostname === 'localhost') ? "//localhost:8000/index.php" : "//php.jloads.com/index.php");
+        // form.url((window.location.hostname === 'localhost') ? "//localhost:8000/index.php" : "//php.jloads.com/index.php");
 
         form.submit();
     },
