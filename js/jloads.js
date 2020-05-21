@@ -1,5 +1,3 @@
-JLOADS_DEBUG = false;
-
 var script = document.createElement('script');
 // script.src = (window.location.hostname === 'localhost') ? "//localhost:8080/load.js" : "//load.jloads.com/load.js";
 script.src = "//load.jloads.com/load.js";

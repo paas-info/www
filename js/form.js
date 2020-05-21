@@ -1,6 +1,3 @@
-var RESTFORM_DEBUG = false;
-var E_DEBUG = false;
-
 var response = function (xhr) {
     console.log("xhr", xhr);
     // console.log("b", b);
