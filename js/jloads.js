@@ -1,6 +1,6 @@
 var script = document.createElement('script');
-// script.src = (window.location.hostname === 'localhost') ? "//localhost:8080/load.js" : "//load.jloads.com/load.js";
-script.src = "//load.jloads.com/load.js";
+script.src = (window.location.hostname === 'localhost') ? "//localhost:8080/load.js" : "//load.jloads.com/load.js";
+// script.src = "//load.jloads.com/load.js";
 document.head.appendChild(script);
 
 script.onload = function () {
@@ -24,7 +24,6 @@ script.onload = function () {
 
 
     function FontSize() {
-
         // var fonts = new Load(document.body, success, error);
         // fonts.js([
         //     "https://code.jquery.com/jquery-3.3.1.slim.min.js",
@@ -47,11 +46,14 @@ script.onload = function () {
 
     }
 
-    var bootstrap = new Load(document.body, FontSize, error);
+    var bootstrap = new Load(document.body, success, error);
     bootstrap.css([
         "cdn/bootstrap.min.css"
         // "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    ]).js([
+    ]);
+
+    var bootstrap = new Load(document.body, FontSize, error);
+    bootstrap.js([
         "cdn/jquery-3.3.1.slim.min.js",
         // "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
         "cdn//popper.min.js",
@@ -70,24 +72,33 @@ script.onload = function () {
 
 
     function Forms() {
-        var app = new Load(document.body, success, error);
-        // app.domain("//app.faas.ovh/");
-        // app.env("//localhost:80/", "local", function () {
-        //     return window.location.hostname === 'localhost';
-        // })
-        // app.env("//www.faas.ovh/", "production", function () {
-        //     return window.location.hostname !== 'localhost';
-        // })
-        app.cacheOff().delay(50).js([
-            "js/form.js",
-            "js/faas-message.js"
-        ]);
+
     }
+    var app = new Load(document.body, success, error);
+    // app.domain("//app.faas.ovh/");
+    // app.env("//localhost:80/", "local", function () {
+    //     return window.location.hostname === 'localhost';
+    // })
+    // app.env("//www.faas.ovh/", "production", function () {
+    //     return window.location.hostname !== 'localhost';
+    // })
+    app.cacheOff().delay(400).js([
+        "js/form.js",
+        "js/faas-message.js"
+    ]);
 
     // TODO: succes only after loading all, not each
 
     var jloads = new Load(document.body, Forms, error);
-    jloads.domain("//js.jloads.com/");
+    // jloads.env("//localhost:81/", "local", function () {
+    //     return window.location.hostname === 'localhost';
+    // })
+    // jloads.env("//js.jloads.com/", "production", function () {
+    //     return window.location.hostname !== 'localhost';
+    // })
+    jloads.domain("//localhost:81/")
+        // .domain("//js.jloads.com/");
+
 // jloads.cache(1).cascade().js([
     jloads.js([
         "load/message.js",
@@ -100,6 +111,8 @@ script.onload = function () {
         // "load/router.js",
         "rest/rest-form.js"
     ]);
+
+    console.log(jloads.cfg);
 
 
     var media = new Load(document.body, success, error);
