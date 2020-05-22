@@ -90,14 +90,14 @@ script.onload = function () {
     // TODO: succes only after loading all, not each
 
     var jloads = new Load(document.body, Forms, error);
-    // jloads.env("//localhost:81/", "local", function () {
-    //     return window.location.hostname === 'localhost';
-    // })
-    // jloads.env("//js.jloads.com/", "production", function () {
-    //     return window.location.hostname !== 'localhost';
-    // })
-    jloads.domain("//localhost:81/")
-        // .domain("//js.jloads.com/");
+    jloads.env("//localhost:81/", "local", function () {
+        return window.location.hostname === 'localhost';
+    })
+    jloads.env("//js.jloads.com/", "production", function () {
+        return window.location.hostname !== 'localhost';
+    })
+    // jloads.domain("//localhost:81/")
+    //     .domain("//js.jloads.com/");
 
 // jloads.cache(1).cascade().js([
     jloads.js([
