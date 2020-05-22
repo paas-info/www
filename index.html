@@ -9,18 +9,32 @@
 
     <script>
         // var RESTFORM_DEBUG = false;
-        var RESTFORM_DEBUG = true;
+        // var RESTFORM_DEBUG = true;
         // var E_DEBUG = false;
-        var E_DEBUG = true;
-        var JLOADS_DEBUG = false;
+        // var E_DEBUG = true;
+        // var JLOADS_DEBUG = false;
         // var JLOADS_DEBUG = true;
-        var TARGET_DEBUG = false;
-        var IMAGE_DEBUG = false;
-        var HTML_DEBUG = false;
+        // var TARGET_DEBUG = false;
+        // var IMAGE_DEBUG = false;
+        // var HTML_DEBUG = false;
 
+        // filtering logs source
+        var log = function (){
+            if(arguments[0] === 'Load'){
+                var str = 'LOG: ';
+                for (var i in arguments) {
+                    str += arguments[i];
+
+                }
+                console.log(str);
+            }
+        }
+
+        // console.log(typeof log);
     </script>
+
     <script src="/js/jloads.js" type="text/javascript"></script>
-<!--    <script src="//user.jloads.com/faas.js" type="text/javascript"></script>-->
+    <!--    <script src="//user.jloads.com/faas.js" type="text/javascript"></script>-->
 
     <style>
         /* GLOBAL */
@@ -43,6 +57,7 @@
         table th {
             font-weight: bolder;
         }
+
         table td {
             padding-right: 5px;
             /*font-weight: normal;*/
@@ -144,7 +159,8 @@
     </div>
 
     <div class="footer">
-        <h5>local: <a href="http://localhost:80/" rel="nofollow">localhost:80/</a> | production: <a href="https://www.faas.ovh/" rel="nofollow">www.faas.ovh</a></h5>
+        <h5>local: <a href="http://localhost:80/" rel="nofollow">localhost:80/</a> | production: <a
+                href="https://www.faas.ovh/" rel="nofollow">www.faas.ovh</a></h5>
     </div>
 </div>
 

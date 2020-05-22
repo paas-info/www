@@ -70,7 +70,6 @@ script.onload = function () {
         "//logo.faas.ovh/4/cover.png"
     ]);
 
-
     function Forms() {
 
     }
@@ -136,5 +135,4 @@ script.onload = function () {
     // "css/black.css",
     // "css/mobile.css"
     // ]);
-
 }
