@@ -37,7 +37,7 @@ script.onload = function () {
         fonts2.env("//www.faas.ovh/", "production", function () {
             return window.location.hostname !== 'localhost';
         })
-        fonts2.cacheOff().js([
+        fonts2.js([
             "cdn/flowtype.js",
         ]);
         fonts2.cacheOff().delay(150).js([
