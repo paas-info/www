@@ -40,7 +40,7 @@ script.onload = function () {
         fonts2.cacheOff().js([
             "cdn/flowtype.js",
         ]);
-        fonts2.cacheOff().delay(90).js([
+        fonts2.cacheOff().delay(150).js([
             "js/flowtype.js",
         ]);
 
@@ -81,7 +81,7 @@ script.onload = function () {
     // app.env("//www.faas.ovh/", "production", function () {
     //     return window.location.hostname !== 'localhost';
     // })
-    app.cacheOff().delay(90).js([
+    app.cacheOff().delay(150).js([
         "js/form.js",
         "js/message.js"
     ]);
@@ -112,7 +112,7 @@ script.onload = function () {
         "rest/rest-form.js"
     ]);
 
-    console.log(jloads.cfg);
+    // console.log(jloads.cfg);
 
 
     var media = new Load(document.body, success, error);
