@@ -23,13 +23,34 @@ script.onload = function () {
     };
 
 
+    var media = new Load(document.body, success, error);
+    media.env("//localhost:80/", "local", function () {
+        return window.location.hostname === 'localhost';
+    })
+    media.env("//www.faas.ovh/", "production", function () {
+        return window.location.hostname !== 'localhost';
+    })
+
+    media.target("#faas-form").html([
+        "html/server.html",
+    ]);
+    media.target("#faas-table").html([
+        // "html/server-list.html",
+        "html/app-list.html",
+    ]);
+
     function FontSize() {
         // var fonts = new Load(document.body, success, error);
         // fonts.js([
         //     "https://code.jquery.com/jquery-3.3.1.slim.min.js",
         // ]);
 
-        var fonts2 = new Load(document.body, success, error);
+        var fonts2 = new Load(document.body, function () {
+            var fonts3 = new Load(document.body, success, error);
+                fonts3.cacheOff().js([
+                "js/flowtype.js",
+            ]);
+        }, error);
         // jloads.domain("//js.jloads.com/");
         fonts2.env("//localhost:80/", "local", function () {
             return window.location.hostname === 'localhost';
@@ -40,20 +61,16 @@ script.onload = function () {
         fonts2.js([
             "cdn/flowtype.js",
         ]);
-        fonts2.cacheOff().delay(150).js([
-            "js/flowtype.js",
-        ]);
-
     }
 
-    var bootstrap = new Load(document.body, FontSize, error);
+    var bootstrap = new Load(document.body, success, error);
     bootstrap.css([
         "cdn/bootstrap.min.css"
         // "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     ]);
 
-    // var bootstrap = new Load(document.body, FontSize, error);
-    bootstrap.js([
+    var bootstrap2 = new Load(document.body, FontSize, error);
+    bootstrap2.js([
         "cdn/jquery-3.3.1.slim.min.js",
         // "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
         "cdn/popper.min.js",
@@ -81,7 +98,7 @@ script.onload = function () {
     // app.env("//www.faas.ovh/", "production", function () {
     //     return window.location.hostname !== 'localhost';
     // })
-    app.cacheOff().delay(150).js([
+    app.cacheOff().delay(644).js([
         "js/form.js",
         "js/message.js"
     ]);
@@ -115,21 +132,7 @@ script.onload = function () {
     // console.log(jloads.cfg);
 
 
-    var media = new Load(document.body, success, error);
-    media.env("//localhost:80/", "local", function () {
-        return window.location.hostname === 'localhost';
-    })
-    media.env("//www.faas.ovh/", "production", function () {
-        return window.location.hostname !== 'localhost';
-    })
 
-    media.target("#faas-form").html([
-        "html/server.html",
-    ]);
-    media.target("#faas-table").html([
-        // "html/server-list.html",
-        "html/app-list.html",
-    ]);
 
 
     // app.style([
