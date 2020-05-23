@@ -46,13 +46,13 @@ script.onload = function () {
 
     }
 
-    var bootstrap = new Load(document.body, success, error);
+    var bootstrap = new Load(document.body, FontSize, error);
     bootstrap.css([
         "cdn/bootstrap.min.css"
         // "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     ]);
 
-    var bootstrap = new Load(document.body, FontSize, error);
+    // var bootstrap = new Load(document.body, FontSize, error);
     bootstrap.js([
         "cdn/jquery-3.3.1.slim.min.js",
         // "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
