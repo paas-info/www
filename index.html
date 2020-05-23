@@ -19,15 +19,17 @@
         // var HTML_DEBUG = false;
 
         // filtering logs source
-        var log = function (){
-            if(arguments[0] === 'Load'){
-                var str = 'LOG: ';
-                for (var i in arguments) {
-                    str += arguments[i];
-
-                }
-                console.log(str);
+        var print_log = function (arguments) {
+            var str = 'LOG: ';
+            for (var i in arguments) {
+                str += arguments[i];
             }
+            console.log(str);
+            return str;
+        }
+        var log = function () {
+            print_log(arguments);
+            // arguments[0] === 'Load' || print_log();
         }
 
         // console.log(typeof log);

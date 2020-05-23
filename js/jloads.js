@@ -41,7 +41,7 @@ script.onload = function () {
             "cdn/flowtype.js",
         ]);
         fonts2.cacheOff().delay(90).js([
-            "js/flowtype2.js",
+            "js/flowtype.js",
         ]);
 
     }
@@ -56,7 +56,7 @@ script.onload = function () {
     bootstrap.js([
         "cdn/jquery-3.3.1.slim.min.js",
         // "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
-        "cdn//popper.min.js",
+        "cdn/popper.min.js",
         // "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         "cdn/bootstrap.min.js"
     ]);
@@ -81,15 +81,16 @@ script.onload = function () {
     // app.env("//www.faas.ovh/", "production", function () {
     //     return window.location.hostname !== 'localhost';
     // })
-    app.cacheOff().delay(400).js([
+    app.cacheOff().delay(90).js([
         "js/form.js",
-        "js/faas-message.js"
+        "js/message.js"
     ]);
 
     // TODO: succes only after loading all, not each
 
     var jloads = new Load(document.body, Forms, error);
-    jloads.env("//localhost:81/", "local", function () {
+    jloads.env("//localhost:81/", "local", function (self) {
+        console.log(this, self);
         return window.location.hostname === 'localhost';
     })
     jloads.env("//js.jloads.com/", "production", function () {
