@@ -1,2 +1,3 @@
 #!/bin/bash
-node server.js
+#node server.js
+php -S localhost:80
