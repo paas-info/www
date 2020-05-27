@@ -1,164 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Softreck Open Source Projects</title>
-    <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/index.css">
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta charset="UTF-8">
+    <title>FaaS</title>
+
+    <script>
+        // var RESTFORM_DEBUG = false;
+        // var RESTFORM_DEBUG = true;
+        // var E_DEBUG = false;
+        // var E_DEBUG = true;
+        // var JLOADS_DEBUG = false;
+        // var JLOADS_DEBUG = true;
+        // var TARGET_DEBUG = false;
+        // var IMAGE_DEBUG = false;
+        // var HTML_DEBUG = false;
+
+        // filtering logs source
+        var print_log = function (arguments) {
+            var str = 'LOG: ';
+            for (var i in arguments) {
+                str += arguments[i];
+            }
+            console.log(str);
+            return str;
+        }
+        var log = function () {
+            print_log(arguments);
+            // arguments[0] === 'Load' || print_log();
+        }
+
+        // console.log(typeof log);
+    </script>
+
+    <script src="/js/jloads.js" type="text/javascript"></script>
+    <!--    <script src="//user.jloads.com/faas.js" type="text/javascript"></script>-->
+
+    <style>
+        /* GLOBAL */
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block; /* remove extra space below image */
+        }
+
+        body {
+            /*background-color: #fb7e14;*/
+            /*color: #fffc60;*/
+            font-family: Tahoma;
+        }
+
+        h2, h3 {
+            font-size: medium;
+        }
+
+        table th {
+            font-weight: bolder;
+        }
+
+        table td {
+            padding-right: 5px;
+            /*font-weight: normal;*/
+        }
+
+        /* MODULES  Size */
+        .jloads.content,
+        .footer {
+            margin: auto auto;
+            width: 98%;
+            max-width: 900px;
+        }
+
+        .jloads.content > div {
+            /*border: 1px solid black;*/
+            /*height: 100px;*/
+            margin: 0px;
+            padding: 4px;
+        }
+
+        #home-images {
+            padding: 0px;
+            height: 60px;
+            max-height: 80px;
+        }
+
+        #faas-form {
+            min-height: 300px;
+        }
+
+        #faas-table {
+            min-height: 300px;
+        }
+
+        #faas-message {
+            height: 150px;
+            /*max-height: 100px;*/
+            /*overflow: scroll;*/
+            color: black;
+        }
+
+        /* MODULES Colors, Fonts */
+        .jloads.content {
+            /*background-color: #333333;*/
+        }
+
+        #home-plugins {
+            /*background-color: #555555;*/
+        }
+
+        #home-images {
+            background-color: #fb7e14;
+        }
+
+        /*.home-messages {*/
+        /*    !*background-color: #333333;*!*/
+        /*    !*font-family: Consolas, "Courier New";*!*/
+        /*    !*font-size: 10px;*!*/
+        /*    color: black;*/
+        /*}*/
+
+
+        /*// Extra small devices (portrait phones, less than 576px)*/
+        @media (max-width: 575px) {
+
+        }
+
+        /*// Small devices (landscape phones, 576px and up)*/
+        @media (min-width: 576px) and (max-width: 767px) {
+
+        }
+
+        /*// Medium devices (tablets, 768px and up)*/
+        @media (min-width: 768px) and (max-width: 991px) {
+
+        }
+
+        /*// Large devices (desktops, 992px and up)*/
+        @media (min-width: 992px) and (max-width: 1199px) {
+
+        }
+
+        /*// Extra large devices (large desktops, 1200px and up)*/
+        @media (min-width: 1200px) {
+
+        }
+
+        .fade-in {
+            animation: fadeIn ease 1s;
+            -webkit-animation: fadeIn ease 1s;
+            -moz-animation: fadeIn ease 1s;
+            -o-animation: fadeIn ease 1s;
+            -ms-animation: fadeIn ease 1s;
+        }
+
+        @keyframes fadeIn{
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @-moz-keyframes fadeIn {
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @-o-keyframes fadeIn {
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+
+        @-ms-keyframes fadeIn {
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+    </style>
+
 </head>
 <body>
-<header class="page-header">
-    <div class="page-header__inner">
 
-        <div class="page-header__top">
-            <div class="page-header__top-inner">
-                <a class="page-header__logo" href="https://www.softreck.com" target="_blank">
-                    <img src="assets/images/logo.png" width="64"/>
-                </a>
-                <nav class="main-nav">
-                    <ul class="main-nav__list">
-                        <li class="main-nav__item">
-                            <a class="main-nav__link" target="_blank" href="https://github.com/softreck">We @ GitHub</a>
-                        </li>
-                        <li class="main-nav__item">
-                            <a class="main-nav__link" target="_blank" href="https://www.softreck.com">Official Website</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-
-        <div class="page-header__main">
-            <h1 class="page-header__title">Softreck <span class="page-header__subtitle">Open Source Projects</span></h1>
-            <ul class="page-header__stats stats">
-                <li class="stats__item">
-                    <span class="stats__label">
-                        <span>Stars</span>
-                    </span>
-                    <span class="stats__count stats__count-stars"></span>
-                </li>
-                <li class="stats__item">
-                    <span class="stats__label">
-                        <span>Repositories</span>
-                    </span>
-                    <span class="stats__count stats__count-repos"></span>
-                </li>
-                <li class="stats__item">
-                    <span class="stats__label">
-                        <span>Languages</span>
-                    </span>
-                    <span class="stats__count stats__count-languages"></span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</header>
-
-<div class="page-content">
-    <div class="page-content__section">
-        <div class="page-content__wrapper">
-            <h2 class="page-heading">Repositories</h2>
-            <div class="languages">
-                <h3 class="languages__title">Top languages</h3>
-            </div>
-        </div>
+<div class="container fade-in" id="jloads">
+    <!-- Content here -->
+    <div class="jloads content">
+        <div id="home-images"></div>
+        <!--    <div id="home-plugins"></div>-->
+        <div id="faas-form"></div>
+        <div id="faas-table"></div>
+        <div id="faas-message" class="faas-messages"></div>
     </div>
 
-    <div class="page-content__section page-content__section--repos">
-        <div class="page-content__wrapper">
-            <ol class="repos"></ol>
-        </div>
+    <div class="footer">
+        <h5>local: <a href="http://localhost:80/" rel="nofollow">localhost:80/</a> | production: <a
+                href="https://www.paas.info/" rel="nofollow">www.paas.info</a></h5>
     </div>
 </div>
 
-<footer class="page-footer">
-    <div class="page-footer__inner">
-        <div class="footer-copyright">© 2020 Softreck OÜ. All rights reserved. Softreck and the softreck logo are trademarks of Softreck
-            OÜ
-        </div>
-    </div>
-</footer>
-
-
-<script src="vendors/jquery-3.2.1.min.js"></script>
-<script src="vendors/svg4everybody.min.js"></script>
-<script>
-    $(window).scroll(function () {
-        if ($(window).scrollTop() >= 140) {
-            $('.page-header__top').addClass('page-header__top--fixed');
-        } else {
-            $('.page-header__top').removeClass('page-header__top--fixed');
-        }
-    });
-    svg4everybody();
-
-    $(function () {
-        const apiUrl = 'https://api.github.com/orgs/faas-info';
-        // const apiUrl = 'https://api.github.com/softreck/repos';
-        let totalStars = 0;
-        const languages = {};
-
-        $.ajax(`${apiUrl}/repos?per_page=1000`, {
-            success: (data) => {
-                data.sort((a, b) => b.stargazers_count - a.stargazers_count).forEach((repo) => {
-                    totalStars += repo.stargazers_count;
-
-                    if (repo.language) {
-                        languages[repo.language] = languages[repo.language] ? ++languages[repo.language] : 1;
-                    }
-
-                    $('ol.repos').append(`
-              <li class="repos__item repo">
-                  <div class="card">
-                      <header class="card__header">
-                          <a class="repo__title" href="${repo.html_url}" target="_blank">
-                              <span class="repo__title-text">${repo.name}</span>
-                              <svg class="icon repo__title-icon">${repo.name.startsWith('ext-') ? 'package' : 'repo'}</svg>
-                          </a>
-                      </header>
-                      <div class="card__content">
-                          <div class="repo__description">${repo.description || ''}</div>
-                      </div>
-                      <footer class="card__footer">
-                          <div class="repo__summary">
-                              ${!repo.language ? '' :
-                        `<span class="repo__summary-item">
-                                      <span class="repo__summary-text">${repo.language}</span>
-                                  </span>`
-                    }
-                              <a href="${repo.html_url}/stargazers" target="_blank" class="repo__summary-item">
-                                  <span class="repo__summary-text">${repo.stargazers_count}</span>
-                              </a>
-                              <a href="${repo.html_url}/network" target="_blank" class="repo__summary-item">
-                                  <span class="repo__summary-text">${repo.forks_count}</span>
-                              </a>
-                              ${!repo.homepage ? '' :
-                        `<a href="${repo.homepage}" target="_blank" class="repo__summary-item">
-                                      <span class="repo__summary-text">Website</span>
-                                  </a>`
-                    }
-                          </div>
-                      </footer>
-                  </div>
-              </li>
-            `);
-                });
-
-                $('.stats__count-stars').text(totalStars);
-                $('.stats__count-repos').text(data.length);
-                $('.stats__count-languages').text(Object.keys(languages).length);
-
-                const colors = ['111111', '777777', 'cccccc'];
-                Object.keys(languages).sort((a, b) => languages[b] - languages[a]).slice(0, 3).forEach((language, index) => {
-                    $('.languages').append(
-                        `<a class="languages__name" href="https://github.com/softreck?language=${language.toLowerCase()}" target="_blank" style="background-color:#${colors[index]};">${language}</a>`
-                    );
-                });
-            }
-        });
-    });
-</script>
 </body>
 </html>
