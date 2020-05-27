@@ -43,7 +43,7 @@ var form = new RestForm('form', response, error, success);
 
 form.cfg({
     "target": "form",
-    "url": "//php.jloads.com/index.php",
+    "url": "//api.paas.info/index.php",
     "method": "GET",
     "event": "submit"
 });
