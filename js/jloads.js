@@ -27,7 +27,7 @@ script.onload = function () {
     media.env("//localhost:80/", "local", function () {
         return window.location.hostname === 'localhost';
     })
-    media.env("//www.faas.ovh/", "production", function () {
+    media.env("//www.paas.info/", "production", function () {
         return window.location.hostname !== 'localhost';
     })
 
@@ -55,7 +55,7 @@ script.onload = function () {
         fonts2.env("//localhost:80/", "local", function () {
             return window.location.hostname === 'localhost';
         })
-        fonts2.env("//www.faas.ovh/", "production", function () {
+        fonts2.env("//www.paas.info/", "production", function () {
             return window.location.hostname !== 'localhost';
         })
         fonts2.js([
@@ -84,18 +84,18 @@ script.onload = function () {
     images.target("#home-images");
 
     images.img([
-        "//logo.faas.ovh/4/cover.png"
+        "//logo.paas.info/2/cover.png"
     ]);
 
     function Forms() {
 
     }
     var app = new Load(document.body, success, error);
-    // app.domain("//app.faas.ovh/");
+    // app.domain("//app.paas.info/");
     // app.env("//localhost:80/", "local", function () {
     //     return window.location.hostname === 'localhost';
     // })
-    // app.env("//www.faas.ovh/", "production", function () {
+    // app.env("//www.paas.info/", "production", function () {
     //     return window.location.hostname !== 'localhost';
     // })
     app.cacheOff().delay(644).js([
