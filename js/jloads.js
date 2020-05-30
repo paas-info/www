@@ -47,7 +47,10 @@ script.onload = function () {
 
         var fonts2 = new Load(document.body, function () {
             var fonts3 = new Load(document.body, success, error);
-                fonts3.cacheOff().js([
+                fonts3.cacheOff().env("//www.paas.info/", "production", function (self) {
+                    return window.location.hostname !== 'localhost' && self.cacheOn();
+                })
+                fonts3.js([
                 "js/flowtype.js",
             ]);
         }, error);
@@ -55,9 +58,10 @@ script.onload = function () {
         // fonts2.env("//localhost:80/", "local", function () {
         //     return window.location.hostname === 'localhost';
         // })
-        fonts2.env("//www.paas.info/", "production", function (self) {
+        fonts2.cacheOff().env("//www.paas.info/", "production", function (self) {
             return window.location.hostname !== 'localhost' && self.cacheOn();
         })
+
         fonts2.js([
             "cdn/flowtype.js",
         ]);
@@ -107,9 +111,9 @@ script.onload = function () {
 
     var jloads = new Load(document.body, Forms, error);
     jloads.env("//localhost:81/", "local", function (self) {
-        return window.location.hostname === 'localhost';
+        return window.location.hostname === 'localhost' && self.cacheOff();
     })
-    jloads.env("//js.jloads.com/", "production", function (self) {
+    jloads.cacheOff().env("//js.jloads.com/", "production", function (self) {
         return window.location.hostname !== 'localhost' && self.cacheOn();
     })
     // jloads.domain("//localhost:81/")
