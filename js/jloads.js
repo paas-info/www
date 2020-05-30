@@ -111,6 +111,8 @@ script.onload = function () {
         return window.location.hostname === 'localhost';
     })
     jloads.env("//js.jloads.com/", "production", function () {
+        console.log('this',this);
+        console.log('this', this.cacheOn());
         return window.location.hostname !== 'localhost';
     })
     // jloads.domain("//localhost:81/")
