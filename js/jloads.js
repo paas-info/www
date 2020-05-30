@@ -99,8 +99,8 @@ script.onload = function () {
     //     return window.location.hostname !== 'localhost';
     // })
     app.cacheOff().delay(644).js([
-        "js/form.js"
-        // "js/message.js"
+        "js/form.js",
+        "js/message.js"
     ]);
 
     // TODO: succes only after loading all, not each
