@@ -32,11 +32,11 @@ script.onload = function () {
     })
 
     media.target("#faas-form").html([
-        "html/server.html",
+        "html/server.html"
     ]);
     media.target("#faas-table").html([
         // "html/server-list.html",
-        "html/app-list.html",
+        "html/app-list.html"
     ]);
 
     function FontSize() {
