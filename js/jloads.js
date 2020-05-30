@@ -28,8 +28,7 @@ script.onload = function () {
     //     return window.location.hostname === 'localhost';
     // })
     media.cacheOff().env("//www.paas.info/", "production", function (self) {
-        console.log('this', self.cacheOn());
-        return window.location.hostname !== 'localhost';
+        return window.location.hostname !== 'localhost' || self.cacheOn();
     })
 
     media.target("#faas-form").html([
@@ -57,8 +56,7 @@ script.onload = function () {
         //     return window.location.hostname === 'localhost';
         // })
         fonts2.env("//www.paas.info/", "production", function (self) {
-            console.log('this', self.cacheOn());
-            return window.location.hostname !== 'localhost';
+            return window.location.hostname !== 'localhost' || self.cacheOn();
         })
         fonts2.js([
             "cdn/flowtype.js",
@@ -97,11 +95,10 @@ script.onload = function () {
     // app.env("//localhost:80/", "local", function () {
     //     return window.location.hostname === 'localhost';
     // })
-    app.env("//www.paas.info/", "production", function (self) {
-        console.log('this', self.cacheOn());
-        return window.location.hostname !== 'localhost';
+    app.cacheOff().env("//www.paas.info/", "production", function (self) {
+        return window.location.hostname !== 'localhost' || self.cacheOn();
     })
-    app.cacheOff().delay(644).js([
+    app.delay(644).js([
         "js/form.js",
         "js/message.js"
     ]);
