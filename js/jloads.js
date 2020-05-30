@@ -27,7 +27,7 @@ script.onload = function () {
     // media.env("//localhost:80/", "local", function () {
     //     return window.location.hostname === 'localhost';
     // })
-    media.env("//www.paas.info/", "production", function () {
+    media.cacheOff().env("//www.paas.info/", "production", function (self) {
         console.log('this', self.cacheOn());
         return window.location.hostname !== 'localhost';
     })
@@ -53,10 +53,10 @@ script.onload = function () {
             ]);
         }, error);
         // jloads.domain("//js.jloads.com/");
-        fonts2.env("//localhost:80/", "local", function () {
-            return window.location.hostname === 'localhost';
-        })
-        fonts2.env("//www.paas.info/", "production", function () {
+        // fonts2.env("//localhost:80/", "local", function () {
+        //     return window.location.hostname === 'localhost';
+        // })
+        fonts2.env("//www.paas.info/", "production", function (self) {
             console.log('this', self.cacheOn());
             return window.location.hostname !== 'localhost';
         })
@@ -97,7 +97,7 @@ script.onload = function () {
     // app.env("//localhost:80/", "local", function () {
     //     return window.location.hostname === 'localhost';
     // })
-    app.env("//www.paas.info/", "production", function () {
+    app.env("//www.paas.info/", "production", function (self) {
         console.log('this', self.cacheOn());
         return window.location.hostname !== 'localhost';
     })
