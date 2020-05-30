@@ -24,10 +24,11 @@ script.onload = function () {
 
 
     var media = new Load(document.body, success, error);
-    media.env("//localhost:80/", "local", function () {
-        return window.location.hostname === 'localhost';
-    })
+    // media.env("//localhost:80/", "local", function () {
+    //     return window.location.hostname === 'localhost';
+    // })
     media.env("//www.paas.info/", "production", function () {
+        console.log('this', self.cacheOn());
         return window.location.hostname !== 'localhost';
     })
 
@@ -56,6 +57,7 @@ script.onload = function () {
             return window.location.hostname === 'localhost';
         })
         fonts2.env("//www.paas.info/", "production", function () {
+            console.log('this', self.cacheOn());
             return window.location.hostname !== 'localhost';
         })
         fonts2.js([
@@ -95,9 +97,10 @@ script.onload = function () {
     // app.env("//localhost:80/", "local", function () {
     //     return window.location.hostname === 'localhost';
     // })
-    // app.env("//www.paas.info/", "production", function () {
-    //     return window.location.hostname !== 'localhost';
-    // })
+    app.env("//www.paas.info/", "production", function () {
+        console.log('this', self.cacheOn());
+        return window.location.hostname !== 'localhost';
+    })
     app.cacheOff().delay(644).js([
         "js/form.js",
         "js/message.js"
@@ -107,11 +110,9 @@ script.onload = function () {
 
     var jloads = new Load(document.body, Forms, error);
     jloads.env("//localhost:81/", "local", function (self) {
-        console.log(this, self);
         return window.location.hostname === 'localhost';
     })
     jloads.env("//js.jloads.com/", "production", function (self) {
-        console.log('this', self);
         console.log('this', self.cacheOn());
         return window.location.hostname !== 'localhost';
     })
