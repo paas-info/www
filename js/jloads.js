@@ -1,5 +1,5 @@
 var script = document.createElement('script');
-script.src = (window.location.hostname === 'localhost') ? "//localhost:8080/load.js" : "//load.jloads.com/load.js";
+script.src = (window.location.hostname === 'localhost') ? "//localhost:8080/load.js" : "//get.jloads.com/jloads-url.js";
 // script.src = "//load.jloads.com/load.js";
 document.head.appendChild(script);
 
