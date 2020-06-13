@@ -7,7 +7,7 @@
 function AddMessage(text) {
 
     var message = new Message({
-        'class': 'faas-messages'
+        'class': 'messages'
     });
     message.add(text);
 }
