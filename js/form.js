@@ -6,9 +6,7 @@
  */
 function AddMessage(text) {
 
-    var message = new Message({
-        'class': 'messages'
-    });
+    var message = new Message('#messages');
     message.add(text);
 }
 
