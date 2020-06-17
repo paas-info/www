@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>Platform as a Service - PaaS.info</title>
 
-    <script src="//get.jloads.com/jloads-form.js?1"></script>
+    <script src="//get.jloads.com/jloads-url.js?4"></script>
 
     <script>
 
@@ -19,9 +19,15 @@
                 // "//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css",
                 // "//stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js",
                 "//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
-                "//www.paas.info/css/style.css",
-                "//www.paas.info/css/fade-in.css",
+                "//js.jloads.com/load/message.js",
+                // "load/e.js",
+                "//js.jloads.com/load/formToObject.min.js",
+                // "load/response.js",
+                "//js.jloads.com/rest/rest.js",
+                "//js.jloads.com/rest/rest-form.js",
+                "//app.wapka.pl/css/style.css",
                 // "//www.paas.info/cdn/flowtype.js",
+
             ],
             "body": [
                 // "//www.paas.info/js/flowtype.js",
@@ -41,6 +47,7 @@
             "#images": [
                 "//logo.paas.info/2/cover.png"
             ]
+
         });
 
     </script>
@@ -131,6 +138,84 @@
             color: black;
         }
 
+
+        /*// Extra small devices (portrait phones, less than 576px)*/
+        @media (max-width: 575px) {
+
+        }
+
+        /*// Small devices (landscape phones, 576px and up)*/
+        @media (min-width: 576px) and (max-width: 767px) {
+
+        }
+
+        /*// Medium devices (tablets, 768px and up)*/
+        @media (min-width: 768px) and (max-width: 991px) {
+
+        }
+
+        /*// Large devices (desktops, 992px and up)*/
+        @media (min-width: 992px) and (max-width: 1199px) {
+
+        }
+
+        /*// Extra large devices (large desktops, 1200px and up)*/
+        @media (min-width: 1200px) {
+
+        }
+
+        .fade-in {
+            animation: fadeIn ease 1s;
+            -webkit-animation: fadeIn ease 1s;
+            -moz-animation: fadeIn ease 1s;
+            -o-animation: fadeIn ease 1s;
+            -ms-animation: fadeIn ease 1s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-ms-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 
 </head>
