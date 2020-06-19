@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>Platform as a Service - PaaS.info</title>
 
-    <script src="//get.jloads.com/jloads-form.js?2"></script>
+    <script src="//get.jloads.com/jloads-form.js?1"></script>
 
     <script>
 
@@ -18,8 +18,8 @@
                 // "cdn/jquery-3.3.1.slim.min.js",
                 // "//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css",
                 // "//stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js",
-                "//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
-                "//www.paas.info/css/style.css",
+                // "//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js",
+                // "//www.paas.info/css/style.css",
                 "//www.paas.info/css/fade-in.css",
                 // "//www.paas.info/cdn/flowtype.js",
             ],
@@ -43,14 +43,22 @@
             ]
         });
 
-        jloadsEvent({
+        jloadsForm({
+            // "html:onload": {
             "#server:onload": {
-                "#server option": [
+                "#server>option": [
                     {"1": "server 1"},
                     {"2": "server 2"},
                     {"3": "server 3"}
                 ]
             }
+            // "#server:click": {
+            //     "#server>option": [
+            //         {"1": "server 1"},
+            //         {"2": "server 2"},
+            //         {"3": "server 3"}
+            //     ]
+            // }
         });
     </script>
 
