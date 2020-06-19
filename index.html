@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>Platform as a Service - PaaS.info</title>
 
-    <script src="//get.jloads.com/jloads-form.js?1"></script>
+    <script src="//get.jloads.com/jloads-form.js?2"></script>
 
     <script>
 
@@ -27,22 +27,31 @@
                 // "//www.paas.info/js/flowtype.js",
             ],
             "form": [
-                "//www.paas.info/js/form.js",
+                "js/form.js",
             ],
             "#messages": [
-                "//www.paas.info/js/message.js"
+                "js/message.js"
             ],
             "#forms": [
-                "//www.paas.info/html/server.html"
+                "html/server.html"
             ],
             "#apps": [
-                "//www.paas.info/html/app-list.html"
+                "html/app-list.html"
             ],
             "#images": [
                 "//logo.paas.info/2/cover.png"
             ]
         });
 
+        jloadsEvent({
+            "#server:onload": {
+                "#server option": [
+                    {"1": "server 1"},
+                    {"2": "server 2"},
+                    {"3": "server 3"}
+                ]
+            }
+        });
     </script>
 
     <style>
@@ -86,7 +95,8 @@
         .footer {
             background-color: #eee;
         }
-        #jloads > div{
+
+        #jloads > div {
             /*padding: 2px;*/
         }
 
